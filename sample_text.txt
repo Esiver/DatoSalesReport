@@ -1,0 +1,9 @@
+ydASAASDASDOSError: no library called "cairo" was foundOSError: no library called "cairo" was found
+OSError: no library called "cairo" was foundOSError: no library called "cairo" was found
+OSError: no library called "cairo" was found
+OSError: no library called "cairo" was found
+OSError: no library called "cairo" was foundOSErrorOSError: no library called "cairo" was foundOSError: no library called "cairo" was found
+
+OSError: no library called "cairo" was foundOSError: no library called "cairo" was found
+OSError: no library called "cairo" was foundOSError: no library called "cairo" was foundVOSError: no library called "cairo" was found
+OSError: no library called "cairo" was foundOSError: no library called "cairo" was found
