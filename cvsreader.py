@@ -21,5 +21,8 @@ daygroup.makeCsv(day) #csv for day dataframe
 weekgroup.plot(week, week_stats) #make plot, saves a file but doesn't plt.plot()
 daygroup.plot(day, day_stats) #make plot for days(-data)
 
-weekgroup.makeReport() #make a report in .pdf
-daygroup.makeReport() #report in .pdf
+#weekgroup.makeReport() #make a report in .pdf
+#daygroup.makeReport() #report in .pdf
+
+files_to_read = ['week_max5.csv','week_min5.csv', 'clean_data.csv']
+weekgroup.reporter(files_to_read)
