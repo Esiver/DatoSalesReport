@@ -7,7 +7,7 @@ import datetime
 import csv
 from fpdf import FPDF
 
-sales_data = pd.read_csv(r'clean_data.csv', engine='c', sep='\t')
+sales_data = pd.read_csv(r'clean_data.csv', engine='c')#, sep='\t')
 sales_data['date'] = pd.to_datetime(sales_data['date'], errors='coerce') #make a 'date'-column in datetime format
 
 def main():
@@ -40,6 +40,7 @@ def makeCsv (df):
     return csv_df
 
 #------------------------------------------------------
+'''
 class PDF(FPDF):
     def header(self):
         self.image('datologo.png',10,10,30,30) #logo
@@ -65,7 +66,7 @@ class PDF(FPDF):
         self.cell(30,10,dfile)
         self.ln(10)
         self.set_font('Courier','',size=12)
-        with open(r %dfile, newline='') as f:
+        with open(dfile, newline='') as f:
             data = csv.reader(f)
             th = self.font_size
             page_width = self.w - 2 * self.l_margin
@@ -101,7 +102,7 @@ def reporter(datafile):
     pdf.output('newMan.pdf', 'F')
 
 #---------------------------------------------------
-
+'''
 def stats(x):
     week_sales_max = x.nlargest(5,'sales')
     week_sales_min = x.nsmallest(5,'sales')
