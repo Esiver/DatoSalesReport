@@ -12,8 +12,8 @@ class PDF(FPDF):
         self.image('datologo.png',10,10,30,30) #logo
         self.set_font('Arial','B',16) #Arial bold size 16
         self.cell(80) #transform cell 80
-        self.cell(30,10,'I am Title',1,0,'C')
-        self.ln(50)
+        self.cell(75,10,'Sales Data Report',1,0,'C')
+        self.ln(40)
     
     def figure(self, mig):
         self.ln(30)
@@ -26,7 +26,22 @@ class PDF(FPDF):
         # Title
         self.cell(30, 10, 'Title', 1, 0, 'C')
         # Line break
-        self.ln(20)
+        self.ln(5)
+    
+    def execSum():
+        print('making executive summary')
+
+    def grapher(self,graph,title):
+        print('inserting graph...')
+        #self.ln(30)
+        # Logo
+        self.set_font('Arial', 'B', 15)
+        self.cell(150, 10, title, 1, 100, 'C')
+        self.image(graph,w=150,h=100)
+        self.cell(w=0,ln=2)
+        #self.cell(280)
+        
+        
     
     def table(self, dfile):
         self.cell(30,10,dfile)
@@ -56,13 +71,18 @@ class PDF(FPDF):
         #self.add_page()
         #self.header()
         #self.figure(fig)
+        #self.grapher(graph)
         self.table(csvfile)
 
 
 def reporter(datafile):
+    print('compiling pdf...')
     pdf = PDF()
-    print('Im the reporter, look at me!')
     pdf.add_page()
+
+    pdf.grapher('day_plot.png','dayplot')
+    pdf.grapher('week_plot.png','week plot')
     for x in datafile:
         pdf.maker('datologo.png',x)
     pdf.output('newMan.pdf', 'F')
+    print('pdf compiled successfully.')

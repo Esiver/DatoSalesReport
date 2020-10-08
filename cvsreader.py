@@ -2,19 +2,13 @@ import pandas as pd
 from pandas import DataFrame
 import matplotlib.pyplot as plt
 import datetime
-print('hellooooooo000000000000000000')
-#get local dependencies
 
-print('colllllllll')
 sales_data = pd.read_csv(r'clean_data_1.csv',engine='c')#, sep='\t'
-print('colllllllll')
-print(sales_data)
-#sales_data.columns = ['date','units','sales','Acos','spend','CPC']
-print(sales_data)
+
 sales_data['date'] = pd.to_datetime(sales_data['date'], errors='coerce') #make a 'date'-column in datetime format
-print('0000000000000000000000000')
+
 import weekgroup, daygroup, pdfMaker#, write_html, dftopdf
-print('-------------------------------')
+
 week = weekgroup.main() #Data by week
 day = daygroup.main() #day data
 
@@ -33,7 +27,7 @@ daygroup.plot(day, day_stats) #make plot for days(-data)
 def formatMain(mainFile):
     csv_df = mainFile.to_csv()
     mainFile.to_csv(r'all_data.csv')
-    print('made csv MAIN-----------------------------------')
+    print('formatted main data')
     return csv_df
 
 formatMain(sales_data) #format my original data into a dataframe friendly csv
