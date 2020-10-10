@@ -7,11 +7,11 @@ import datetime
 import csv
 from fpdf import FPDF
 
-sales_data = pd.read_csv(r'clean_data.csv', engine='c')#, sep='\t')
-sales_data['date'] = pd.to_datetime(sales_data['date'], errors='coerce') #make a 'date'-column in datetime format
 
-def main():
-    
+def main(sales_data):
+    #sales_data = pd.read_csv(r'clean_data.csv', engine='c',sep='\t')#, sep='\t')
+    sales_data['date'] = pd.to_datetime(sales_data['date'], errors='coerce') #make a 'date'-column in datetime format
+
     week_data = sales_data
     week_data['week'] = week_data['date'].dt.week #make week column, just in case...
     week_data = week_data[['units','sales','spend']].groupby(week_data['date'].dt.week).sum().reset_index() #sum columns grouped by date

@@ -9,10 +9,12 @@ import matplotlib.ticker as ticker
 import csv
 from fpdf import FPDF
 
-sales_data = pd.read_csv(r'clean_data.csv', engine='c')#, sep='\t')
-sales_data['date'] = pd.to_datetime(sales_data['date'], errors='coerce') #make a 'date'-column in datetime format
 
-def main():
+
+def main(sales_data):
+    #sales_data = pd.read_csv(r'clean_data.csv', engine='c',sep='\t')#, sep='\t')
+    sales_data['date'] = pd.to_datetime(sales_data['date'], errors='coerce') #make a 'date'-column in datetime format
+
     day_data = sales_data
     
     day_data = day_data[['units','sales','spend']].groupby(day_data['date']).sum().reset_index() #sum
