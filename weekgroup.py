@@ -10,6 +10,7 @@ from fpdf import FPDF
 
 def main(sales_data):
     #sales_data = pd.read_csv(r'clean_data.csv', engine='c',sep='\t')#, sep='\t')
+    sales_data = sales_data
     sales_data['date'] = pd.to_datetime(sales_data['date'], errors='coerce') #make a 'date'-column in datetime format
 
     week_data = sales_data

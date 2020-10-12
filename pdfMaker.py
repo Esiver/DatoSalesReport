@@ -42,12 +42,14 @@ class PDF(FPDF):
         #self.cell(280)
         
         
-    
     def table(self, dfile):
         self.cell(30,10,dfile)
         self.ln(10)
         self.set_font('Courier','',size=12)
-        with open(dfile, newline='') as f:
+        print('I got this far and thats alright')
+        with open('clean_data.csv', newline='') as f:
+            print('ddddddddddddddddddddddddddddddddddd')
+            print(f)
             data = csv.reader(f)
             th = self.font_size
             page_width = self.w - 2 * self.l_margin
@@ -76,13 +78,15 @@ class PDF(FPDF):
 
 
 def reporter(datafile):
-    print('compiling pdf...')
+    print('compiling pdf for ALL data...')
     pdf = PDF()
     pdf.add_page()
-
+    print('---------------------------------')
     pdf.grapher('day_plot.png','dayplot')
     pdf.grapher('week_plot.png','week plot')
     for x in datafile:
-        pdf.maker('datologo.png',x)
-    pdf.output('newMan.pdf', 'F')
+        print('_______________I am just a debugging bug______________')
+        pdf.maker('datologo.png', x)
+    pdf.output('newManxx.pdf', 'F')
     print('pdf compiled successfully.')
+

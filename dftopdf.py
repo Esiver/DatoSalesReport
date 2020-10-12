@@ -17,10 +17,9 @@ def makeReport(file,title):
         col_width = page_width/6
         
         pdf.ln(1)
-        
+    
+
         th = pdf.font_size
-        
-        
 
         for row in reader:
             #print(row)
